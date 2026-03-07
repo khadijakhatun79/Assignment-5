@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Issues Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+<h2>Issue Tracker</h2>
+
+<div>
+
+<input id="searchInput" placeholder="Search issues">
+<button onclick="searchIssue()">Search</button>
+
+</div>
+
+</nav>
+
+
+<!-- Tabs -->
+
+<div class="tabs">
+
+<button onclick="loadIssues('all')" id="allTab">All</button>
+<button onclick="loadIssues('open')" id="openTab">Open</button>
+<button onclick="loadIssues('closed')" id="closedTab">Closed</button>
+
+</div>
+
+
+<!-- Issues -->
+
+<div id="issuesContainer" class="issues-grid"></div>
+
+
+<!-- Loading -->
+
+<div id="loading" class="loading hidden">
+Loading...
+</div>
+
+
+<!-- Modal -->
+
+<div id="modal" class="modal hidden">
+
+<div class="modal-content">
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDescription"></p>
+
+<p><b>Status:</b> <span id="modalStatus"></span></p>
+<p><b>Author:</b> <span id="modalAuthor"></span></p>
+<p><b>Priority:</b> <span id="modalPriority"></span></p>
+<p><b>Label:</b> <span id="modalLabel"></span></p>
+
+<button onclick="closeModal()">Close</button>
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

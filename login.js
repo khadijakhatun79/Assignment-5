@@ -1,16 +1,27 @@
-function login(){
 
-const username=document.getElementById("username").value
-const password=document.getElementById("password").value
+document.getElementById("login-btn").addEventListener("click", function () {
 
-if(username==="admin" && password==="admin123"){
+    // get the username input
+    const numberInput = document.getElementById("input-username");
+    const contactNumber = numberInput.value;
+    console.log(contactNumber);
 
-window.location.href="index.html"
+    // get the pin input
+    const inputPin = document.getElementById("input-pin");
+    const pin = inputPin.value;
+    console.log(pin);
 
-}else{
+    // match username and password
+    if (contactNumber == "admin" && pin == "admin123") {
 
-alert("Wrong credentials")
+        alert("Login Success");
+        window.location.replace("/index.html")
 
-}
+    } else {
 
-}
+        alert("Login Failed");
+        return;
+
+    }
+
+});

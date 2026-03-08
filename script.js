@@ -9,13 +9,11 @@ function hideLoading(){
 loading.classList.add("hidden")
 }
 
-
 async function loadIssues(type="all"){
 
 showLoading()
 
 const res=await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-
 const data=await res.json()
 
 let issues=data.data
@@ -32,14 +30,25 @@ displayIssues(issues)
 
 hideLoading()
 
+/* active tab */
+
+document.querySelectorAll(".tabs button")
+.forEach(btn=>btn.classList.remove("active"))
+
+if(type==="all") document.getElementById("allTab").classList.add("active")
+if(type==="open") document.getElementById("openTab").classList.add("active")
+if(type==="closed") document.getElementById("closedTab").classList.add("active")
+
 }
 
 loadIssues()
 
-
 function displayIssues(issues){
 
 container.innerHTML=""
+
+document.getElementById("issueCount").innerText=
+issues.length+" Issues"
 
 issues.forEach(issue=>{
 
@@ -51,10 +60,12 @@ card.innerHTML=`
 
 <h3>${issue.title}</h3>
 
-<p>${issue.description.slice(0,80)}</p>
+<p>${issue.description.slice(0,80)}...</p>
 
 <p>Status: ${issue.status}</p>
 <p>Author: ${issue.author}</p>
+<p>Priority: ${issue.priority}</p>
+<p>Label: ${issue.label}</p>
 
 `
 
@@ -66,11 +77,9 @@ container.appendChild(card)
 
 }
 
-
 async function openModal(id){
 
 const res=await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`)
-
 const data=await res.json()
 
 const issue=data.data
@@ -86,11 +95,9 @@ document.getElementById("modal").classList.remove("hidden")
 
 }
 
-
 function closeModal(){
 document.getElementById("modal").classList.add("hidden")
 }
-
 
 async function searchIssue(){
 

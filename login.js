@@ -15,11 +15,11 @@ document.getElementById("login-btn").addEventListener("click", function () {
     if (contactNumber == "admin" && pin == "admin123") {
 
         alert("Login Success");
-        window.location.replace("/index.html")
+        window.location.replace("/home.html") 
 
     } else {
 
-        alert("Login Failed");
+        alert("Login Failed"); 
         return;
 
     }

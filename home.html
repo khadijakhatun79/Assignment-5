@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- tailwind and daisy -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- font-awosome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<title>GitHub Issues Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo"><a href="#"><img src="assets/github-logo2.png" alt=""></a>GitHub Issues Tracke</div>
+
+
+<div class="flex gap-3 items-center">
+
+  <div class="relative">
+
+    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+
+    <input
+      id="searchInput"
+      class="text-base border w-80 py-2 pl-10 pr-3 rounded-lg"
+      placeholder="Search issues..."
+    >
+
+  </div>
+
+  <button class="bg-[#4A00FF] text-white px-5 py-3 rounded-lg">
+    + New Issue
+  </button>
+
+</div>
+</div>
+
+</nav>
+
+
+<!-- Tabs -->
+ <div class="container w-11/10 mx-auto">
+<div class="tabs bg-[#fff] mt-[60px] rounded-[8px]">
+
+<button onclick="loadIssues('all')" id="allTab" class="active">All</button>
+<button onclick="loadIssues('open')" id="openTab">Open</button>
+<button onclick="loadIssues('closed')" id="closedTab">Closed</button>
+
+</div>
+
+
+<!-- Issue header -->
+
+<div class="issues-header bg-white mt-[16px] rounded-[8px] p-[20px]">
+
+<div class="issue-wrapp flex gap-2">
+    <div class="icon"><img src="assets/Aperture.png" alt=""></div>
+<div>
+    <h3 id="issueCount">0 Issues</h3>
+<p>Track and manage your project issues</p>
+</div>
+</div>
+
+<div class="status-indicator">
+<span class="open-dot"></span> Open
+<span class="closed-dot"></span> Closed
+</div>
+
+</div>
+
+
+<!-- Issues Grid -->
+
+<div id="issuesContainer" class="issues-grid"></div>
+
+
+<!-- Loading -->
+
+<div id="loading" class="loading hidden">
+Loading...
+</div>
+ </div>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

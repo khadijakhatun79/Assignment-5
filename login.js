@@ -15,7 +15,7 @@ document.getElementById("login-btn").addEventListener("click", function () {
     if (contactNumber == "admin" && pin == "admin123") {
 
         alert("Login Success");
-        window.location.replace("home.html") 
+      window.location.href = "home.html";
 
     } else {
 
